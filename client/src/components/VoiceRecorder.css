@@ -1,0 +1,103 @@
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.3),
+                0 0 20px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4),
+                0 0 30px rgba(59, 130, 246, 0.3);
+  }
+}
+
+.voice-recorder-container {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.input-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(30, 41, 59, 0.6);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+.chat-input:focus {
+  outline: none;
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4),
+              0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(59, 130, 246, 0.3) 100%);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(239, 68, 68, 0.2);
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.recording-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}

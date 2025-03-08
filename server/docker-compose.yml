@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_API_KEY=${JIRA_API_KEY}
+      - JIRA_SERVER_URL=${JIRA_SERVER_URL}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - DEEPGRAM_API_KEY=${DEEPGRAM_API_KEY}
+    volumes:
+      - ../server:/app/server
+      - ../client:/app/client
+    devices:
+      - /dev/snd:/dev/snd
+    restart: "no"
+    command: hypercorn --bind 0.0.0.0:8000 --access-log - server:app
